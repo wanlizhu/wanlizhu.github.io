@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Graphics Software Engineer"><title>Wanli's Blog</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css"><link rel="stylesheet" type="text/css" href="/css/very-simple.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><!-- include the sidebar--><!-- include ./includes/sidebar.jade--><!-- Blog title and subtitle--><header><div class="container header"><a id="logo" href="/." class="title">Wanli's Blog</a><span class="subtitle"></span><label id="toggle-menu" for="menu" onclick=""><i class="fa fa-bars"></i></label></div></header><!-- use checkbox hack for toggle nav-bar on small screens--><input id="menu" type="checkbox"><!-- Navigation Links--><nav id="nav"><div class="container"><a href="/" class="sidebar-nav-item active">Home</a><a href="/archives" class="sidebar-nav-item">Archives</a></div></nav><div id="header-margin-bar"></div><article><div id="index-main" class="container entries"><div class="post-entry"><div class="post-time">2018-12-31</div><div class="post-desc"><div class="post-title"><a href="/2018/12/31/C-内存对象模型/">C++内存对象模型</a></div><div class="post-content"><p>在C++对象模型下，nonstatic 数据成员被置于每一个类对象中，而static数据成员被置于类对象之外。static与nonstatic函数也都放在类对象之外，而<strong>对于virtual 函数，则通过虚函数表+虚指针来支持</strong>：</p></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/C/">C++</a></div><div class="post-categories"><a class="post-category-link" href="/categories/C/">C++</a></div></div></div></div><div class="post-entry"><div class="post-time">2018-12-26</div><div class="post-desc"><div class="post-title"><a href="/2018/12/26/german-for-english-speakers/">German for English Speakers</a></div><div class="post-content"><!-- toc -->
+<ul>
+<li><a href="#basics">BASICS</a><ul>
+<li><a href="#the-german-alphabet">The German Alphabet</a><ul>
+<li><a href="#special-pronunciations">Special pronunciations</a></li>
+<li><a href="#germanic-umlaut">Germanic Umlaut</a></li>
+<li><a href="#when-to-write-ss-and-when-to-use-ß">When to write ss and when to use ß?</a></li>
+<li><a href="#typing-german-characters-on-non-german-keyboards">Typing German characters on non-German keyboards</a></li>
+</ul>
+</li>
+<li><a href="#pronunciation-consonants">Pronunciation: Consonants</a></li>
+<li><a href="#pronunciation-vowels">Pronunciation: Vowels</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<p><strong>The refinement of the site of Peter Lewis, Click <a href="http://germanforenglishspeakers.com/" target="_blank" rel="noopener">here</a> to browse</strong></p></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/German/">German</a></div><div class="post-categories"><a class="post-category-link" href="/categories/German/">German</a></div></div></div></div><div class="post-entry"><div class="post-time">2018-12-25</div><div class="post-desc"><div class="post-title"><a href="/2018/12/25/5-reasons-to-learn-german/">5 Reasons to Learn German</a></div><div class="post-content"><p>If you’re thinking about learning a new language, German could well make an excellent choice. It may not leap to mind as an exciting language to have in your arsenal, but hear us out… While German doesn’t have the romantic allure of French, or be considered a business asset like Chinese, the language wins hands down once you start considering its other strengths.</p>
+<p>If you’re worried we going to say you should learn German because 120 million native speakers worldwide, fear not. Below, we’ve covered the five most interesting reasons why German should take pride of place on your skills list.</p></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/German/">German</a></div><div class="post-categories"><a class="post-category-link" href="/categories/German/">German</a></div></div></div></div><div class="post-entry"><div class="post-time">2018-12-25</div><div class="post-desc"><div class="post-title"><a href="/2018/12/25/cmake-checking-platform/">CMake | Checking Platform</a></div><div class="post-content"><!-- toc -->
+<ul>
+<li><a href="#platform-variables"><strong>Platform Variables</strong></a></li>
+<li><a href="#cmake-system"><strong>CMake System</strong></a></li>
+</ul>
+<!-- tocstop --></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/CMake/">CMake</a></div><div class="post-categories"><a class="post-category-link" href="/categories/SW/">SW</a></div></div></div></div><div class="post-entry"><div class="post-time">2018-12-25</div><div class="post-desc"><div class="post-title"><a href="/2018/12/25/cmake-useful-variables/">CMake | Useful Variables</a></div><div class="post-content"><!-- toc -->
+<ul>
+<li><a href="#locations"><strong>Locations</strong></a></li>
+<li><a href="#environment-variables"><strong>Environment Variables</strong></a></li>
+<li><a href="#system-compiler-information"><strong>System &amp; Compiler Information</strong></a></li>
+<li><a href="#various-options"><strong>Various Options</strong></a></li>
+<li><a href="#compilers-and-tools"><strong>Compilers and Tools</strong></a></li>
+<li><a href="#prefixes-suffixes-postfixes-and-extensions"><strong>Prefixes, Suffixes (Postfixes), and Extensions</strong></a></li>
+</ul>
+<!-- tocstop --></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/CMake/">CMake</a></div><div class="post-categories"><a class="post-category-link" href="/categories/SW/">SW</a></div></div></div></div><div class="post-entry"><div class="post-time">2018-12-13</div><div class="post-desc"><div class="post-title"><a href="/2018/12/13/the-power-of-nostalgia/">The Power Of Nostalgia</a></div><div class="post-content"><p>It may surprise you to know that in the 1600s nostalgia was classified as a neurologic disorder that occurred mainly within soldiers who were spending many years abroad away from their home. ‘Nostos’ is a word for homecoming and ‘Algos’ is a word for pain, when you combine those you get ‘nostalgia’.</p>
+<p>Fast forwarding to the 19th and 20th centuries, nostalgis became now classified as a <strong>psychological disorder</strong> where experts thought if their patients spent too much time thinking about the past, they weren’t living in the present and that was a disease. In 2018, we have realized that is not the case.</p>
+<p>Nostalgia can be a very positive emotion that <strong>is stabilizing to</strong> us during times of change and transition. As humans we need nostalgia to constantly remind us of meaning in our lives, and those of us who never experienced nostalgia are actually a little bit worse than those who experience on a regular basis. That warm comforting feeling that you get when you reminisce about something that happened in the past, that’s nostalgis.</p></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/English/">English</a></div><div class="post-categories"><a class="post-category-link" href="/categories/English/">English</a></div></div></div></div><div class="post-entry"><div class="post-time">2018-12-09</div><div class="post-desc"><div class="post-title"><a href="/2018/12/09/cmake-manual/">CMake Manual</a></div><div class="post-content"><!-- toc -->
+<ul>
+<li><a href="#basics"><strong>Basics</strong></a><ul>
+<li><a href="#1-hello-world"><strong>1. Hello World</strong></a><ul>
+<li><a href="#11-creating-an-executable"><strong>1.1 Creating an Executable</strong></a></li>
+<li><a href="#12-binary-directory"><strong>1.2 Binary Directory</strong></a></li>
+<li><a href="#13-in-place-out-of-source-build"><strong>1.3 In-Place &amp; Out-of-Source Build</strong></a></li>
+<li><a href="#build-the-example">Build the Example</a></li>
+</ul>
+</li>
+<li><a href="#2-hello-world-with-headers"><strong>2. Hello World with Headers</strong></a><ul>
+<li><a href="#21-directory-paths"><strong>2.1 Directory Paths</strong></a></li>
+<li><a href="#22-source-files-variable"><strong>2.2 Source Files Variable</strong></a></li>
+<li><a href="#23-including-directories"><strong>2.3 Including Directories</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<p><a href="https://gitlab.kitware.com/cmake/community/wikis/home" target="_blank" rel="noopener">CMake Community Wiki</a>.</p></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/CMake/">CMake</a></div><div class="post-categories"><a class="post-category-link" href="/categories/SW/">SW</a></div></div></div></div><div class="post-entry"><div class="post-time">2018-12-08</div><div class="post-desc"><div class="post-title"><a href="/2018/12/08/politics-does-the-eu-really-need-the-uk/">Politics | Does the EU Really Need the UK?</a></div><div class="post-content"><p><em>The UK needs the EU slightly more than they need the UK.</em></p>
+<p><strong>What would the EU lose?</strong></p>
+<ul>
+<li>access to a major trading partner.</li>
+<li>13% of their budget.</li>
+<li>an important ally when it comes to security.</li>
+</ul>
+<p><strong>What would the UK lose?</strong></p>
+<ul>
+<li>single market access to a trading block which makes up about 50% of their international trade.</li>
+<li>an important security alliance</li>
+<li>although they get to keep 136 million pounds a week, that will almost definitely be cancelled out by lost of economic growth at least in the short term. </li>
+</ul></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/Brexit/">Brexit</a>/<a class="post-tag-link" href="/tags/English/">English</a></div><div class="post-categories"><a class="post-category-link" href="/categories/English/">English</a></div></div></div></div><div class="post-entry"><div class="post-time">2018-12-04</div><div class="post-desc"><div class="post-title"><a href="/2018/12/04/git-manual/">Git Manual</a></div><div class="post-content"><!-- toc -->
+<ul>
+<li><a href="#config"><strong>Config</strong></a></li>
+<li><a href="#branch"><strong>Branch</strong></a><ul>
+<li><a href="#clone"><strong>Clone</strong></a></li>
+<li><a href="#查询branch"><strong>查询branch</strong></a></li>
+<li><a href="#修改branch"><strong>修改branch</strong></a></li>
+<li><a href="#checkout"><strong>Checkout</strong></a></li>
+<li><a href="#misc"><strong>Misc</strong></a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<p>For the teams I work with, we follow the design philosophy of Git:</p>
+<ul>
+<li>Anything in the master branch is deployable.</li>
+<li>To work on something new, create a descriptively named branch off of master.</li>
+<li>Commit to that branch locally and regularly push your work to the same named branch on the server.</li>
+<li>When you need feedback or help, or you think the branch is ready for merging, open a pull request.</li>
+<li>After someone else has reviewed and signed off on the feature, you can merge it into master.</li>
+<li>Once it is merged and pushed to ‘master’, you can and should deploy immediately.</li>
+</ul></div><div class="post-meta"><div class="post-tags"><a class="post-tag-link" href="/tags/Git/">Git</a></div><div class="post-categories"><a class="post-category-link" href="/categories/SW/">SW</a></div></div></div></div></div></article><div class="container page-navigator-wrapper"></div><footer id="footer"><div class="container"><div class="bar"><div class="social"><a href="mailto:sinoxavier@outlook.com" target="_blank"><i class="fa fa-envelope-o"></i></a><a href="https://github.com/https://github.com/wanlizhu" target="_blank"><i class="fa fa-github"></i></a><a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div><div class="footer">© 2018 <a href="/" rel="nofollow">Wanli Zhu</a>. Powered by <a rel="nofollow" target="_blank" href="https://hexo.io">Hexo</a>. Theme <a target="_blank" href="https://github.com/lotabout/very-simple">very-simple</a>.</div></div></div></footer><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css"><script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script><script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script>$(document).ready(function() {
+    $(".fancybox").fancybox();
+});
+</script></body></html>

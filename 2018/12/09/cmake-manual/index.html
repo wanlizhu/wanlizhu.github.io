@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Graphics Software Engineer"><title>CMake Manual | Wanli's Blog</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css"><link rel="stylesheet" type="text/css" href="/css/very-simple.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><!-- include the sidebar--><!-- include ./includes/sidebar.jade--><!-- Blog title and subtitle--><header><div class="container header"><a id="logo" href="/." class="title">Wanli's Blog</a><span class="subtitle"></span><label id="toggle-menu" for="menu" onclick=""><i class="fa fa-bars"></i></label></div></header><!-- use checkbox hack for toggle nav-bar on small screens--><input id="menu" type="checkbox"><!-- Navigation Links--><nav id="nav"><div class="container"><a href="/" class="sidebar-nav-item active">Home</a><a href="/archives" class="sidebar-nav-item">Archives</a></div></nav><div id="header-margin-bar"></div><!-- gallery that comes before the header--><div class="wrapper"><div class="container post-header"><h1>CMake Manual</h1></div></div><div class="wrapper"><div class="container meta"><div class="post-time">2018-12-09</div><div class="post-categories"><a class="post-category-link" href="/categories/SW/">SW</a></div><div class="post-tags"><a class="post-tag-link" href="/tags/CMake/">CMake</a></div></div></div><article><div class="container post"><!-- toc -->
+<ul>
+<li><a href="#basics"><strong>Basics</strong></a><ul>
+<li><a href="#1-hello-world"><strong>1. Hello World</strong></a><ul>
+<li><a href="#11-creating-an-executable"><strong>1.1 Creating an Executable</strong></a></li>
+<li><a href="#12-binary-directory"><strong>1.2 Binary Directory</strong></a></li>
+<li><a href="#13-in-place-out-of-source-build"><strong>1.3 In-Place &amp; Out-of-Source Build</strong></a></li>
+<li><a href="#build-the-example">Build the Example</a></li>
+</ul>
+</li>
+<li><a href="#2-hello-world-with-headers"><strong>2. Hello World with Headers</strong></a><ul>
+<li><a href="#21-directory-paths"><strong>2.1 Directory Paths</strong></a></li>
+<li><a href="#22-source-files-variable"><strong>2.2 Source Files Variable</strong></a></li>
+<li><a href="#23-including-directories"><strong>2.3 Including Directories</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<p><a href="https://gitlab.kitware.com/cmake/community/wikis/home" target="_blank" rel="noopener">CMake Community Wiki</a>.</p>
+<a id="more"></a>
+<h2><span id="basics"><strong>Basics</strong></span></h2><h3><span id="1-hello-world"><strong>1. Hello World</strong></span></h3><p>Directory structure for this example is below:<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">/<br><span class="hljs-string">|--CMakeLists.txt</span><br><span class="hljs-string">|-- main.cpp</span><br><span class="hljs-string">|-- header.h</span><br></code></pre></td></tr></table></figure></p>
+<p>Content of CMakeLists.txt is below:<br><figure class="highlight CMake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs CMake"><span class="hljs-keyword">CMAKE_MINIMUM_REQUIRED</span>(VERSION <span class="hljs-number">3.5</span>)<br><span class="hljs-keyword">PROJECT</span>(HelloWorld)<br><span class="hljs-keyword">ADD_EXECUTABLE</span>(<span class="hljs-variable">$&#123;ProjectName&#125;</span> main.cpp)<br></code></pre></td></tr></table></figure></p>
+<h4><span id="11-creating-an-executable"><strong>1.1 Creating an Executable</strong></span></h4><p>The <code>add_executable()</code> command specifies that an executable should be build from the specified source files, in this example main.cpp. The first argument to the <code>add_executable()</code> function is the name of the executable to be built, and the second argument is the list of source files to compile.</p>
+<p>In this example, the <code>project()</code> function, will create a variable <code>${PROJECT_NAME}</code> with the value HelloWorld. This can then be passed to the <code>add_executable()</code> function to output a ‘HelloWorld’ executable.</p>
+<h4><span id="12-binary-directory"><strong>1.2 Binary Directory</strong></span></h4><p>The root or top level folder that you run the cmake command from is known as your <code>CMAKE_BINARY_DIR</code> and is the root folder for all your binary files. CMake supports building and generating your binary files both <strong><em>in-place</em></strong> and also <strong><em>out-of-source</em></strong> which is highly recommended.</p>
+<h4><span id="13-in-place-amp-out-of-source-build"><strong>1.3 In-Place &amp; Out-of-Source Build</strong></span></h4><p><strong><em>In-place builds</em></strong> generate all temporary build files in the same directory structure as the source code. This means that all Makefiles and object files are interspersed with your normal code. </p>
+<p><strong><em>Out-of-source builds</em></strong> allow you to create a single build folder that can be anywhere on your file system. All temporary build and object files are located in this directory keeping your source tree clean. To create an out-of-source build run the cmake command in the build folder and point it to the directory with your root CMakeLists.txt file. Using out-of-source builds if you want to recreate your cmake environment from scratch, you only need to delete your build directory and then rerun cmake.</p>
+<h4><span id="build-the-example">Build the Example</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">&gt;&gt; mkdir build<br>&gt;&gt; <span class="hljs-built_in">cd</span> build<br>&gt;&gt; cmake .. -G <span class="hljs-string">"Visual Studio 15 2017 Win64"</span><br>&gt;&gt; cmake --build .<br>&gt;&gt; ./HelloWorld<br></code></pre></td></tr></table></figure>
+<h3><span id="2-hello-world-with-headers"><strong>2. Hello World with Headers</strong></span></h3><p>Directory structure for this example is below:<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs undefined">/<br>|<span class="hljs-string">--CMakeLists.txt<br></span>|<span class="hljs-string">-- include<br></span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- Hello.h<br></span>|<span class="hljs-string">-- src<br>    </span>|<span class="hljs-string">-- Hello.cpp<br>    </span>|<span class="hljs-string">-- main.cpp</span><br></code></pre></td></tr></table></figure></p>
+<p>Content of CMakeLists.txt is below:<br><figure class="highlight CMake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs CMake"><span class="hljs-keyword">CMAKE_MINIMUM_REQUIRED</span>(VERSION <span class="hljs-number">3.5</span>)<br><span class="hljs-keyword">PROJECT</span>(HelloWorld)<br><br><span class="hljs-keyword">SET</span>(SRC_LIST<br>    src/Hello.cpp<br>    src/main.cpp)<br><span class="hljs-keyword">ADD_EXECUTABLE</span>(<span class="hljs-variable">$&#123;ProjectName&#125;</span> <span class="hljs-variable">$&#123;SRC_LIST&#125;</span>)<br><span class="hljs-keyword">TARGET_INCLUDE_DIRECTORIES</span>(<span class="hljs-variable">$&#123;ProjectName&#125;</span> PRIVATE<br>    <span class="hljs-variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="hljs-keyword">include</span>)<br></code></pre></td></tr></table></figure></p>
+<h4><span id="21-directory-paths"><strong>2.1 Directory Paths</strong></span></h4><p>CMake syntax specifies a number of <a href="https://www.wanlizhu.github.io/cmake-useful-variables" target="_blank" rel="noopener">variables</a> which can be used to help find useful directories in your project or source tree. Some of these include:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>Variable</strong></th>
+<th style="text-align:left"><strong>Information</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CMAKE_SOURCE_DIR</td>
+<td style="text-align:left">The root source directory</td>
+</tr>
+<tr>
+<td style="text-align:left">CMAKE_CURRENT_SOURCE_DIR</td>
+<td style="text-align:left">The current source directory if using sub-projects and directories</td>
+</tr>
+<tr>
+<td style="text-align:left">PROJECT_SOURCE_DIR</td>
+<td style="text-align:left">The source directory of the current cmake project</td>
+</tr>
+<tr>
+<td style="text-align:left">CMAKE_BINARY_DIR</td>
+<td style="text-align:left">The root binary / build directory. This is the directory where you ran the cmake command</td>
+</tr>
+<tr>
+<td style="text-align:left">CMAKE_CURRENT_BINARY_DIR</td>
+<td style="text-align:left">The build directory you are currently in</td>
+</tr>
+<tr>
+<td style="text-align:left">PROJECT_BINARY_DIR</td>
+</tr>
+</tbody>
+</table>
+<p>The build directory for the current project|</p>
+<h4><span id="22-source-files-variable"><strong>2.2 Source Files Variable</strong></span></h4><p>Creating a variable which includes the source files allows you to be clearer about these files and easily add them to multiple commands, for example, the add_executable() function.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-comment"># Create a sources variable with a link to all cpp files to compile</span><br><span class="hljs-keyword">SET</span>(SOURCES<br>    src/Hello.cpp<br>    src/main.cpp)<br><br><span class="hljs-keyword">ADD_EXECUTABLE</span>(<span class="hljs-variable">$&#123;PROJECT_NAME&#125;</span> <span class="hljs-variable">$&#123;SOURCES&#125;</span>)<br></code></pre></td></tr></table></figure>
+<hr>
+<p><strong>Note!</strong> : An alternative to setting specific file names in the SOURCES variable is to use a GLOB command to find files using wildcard pattern matching. <code>FILE(GLOB SOURCES &quot;src/*.cpp&quot;)</code></p>
+<hr>
+<hr>
+<p><strong>Tip</strong> : For modern CMake it is NOT recommended to use a variable for sources. Insead it is typical to directly declare the sources in the add_xxx function. This is particularly important for glob commands which may not always show you the correct results if you add a new source file.</p>
+<hr>
+<h4><span id="23-including-directories"><strong>2.3 Including Directories</strong></span></h4><p>When you have different include folders, you can make your compiler aware of them using the <code>target_include_directories()</code> function. When compiling this target this will add these directories to the compiler with the <code>-I</code> flag e.g. <code>-I/directory/path</code></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-keyword">TARGET_INCLUDE_DIRECTORIES</span>(<span class="hljs-keyword">target</span> PRIVATE<br>    <span class="hljs-variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="hljs-keyword">include</span>)<br></code></pre></td></tr></table></figure>
+<p>The <strong>PRIVATE</strong> identifier specifies the scope of the include. This is important for libraries and there are two other identifiers of scope (INTERFACE and PUBLIC).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Scope</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PRIVATE</td>
+<td style="text-align:left">the directory is added to this target’s include directories</td>
+</tr>
+<tr>
+<td style="text-align:left">INTERFACE</td>
+<td style="text-align:left">the directory is added to the include directores for any targets that link this library</td>
+</tr>
+<tr>
+<td style="text-align:left">PUBLIC</td>
+<td style="text-align:left">As above, it is included int his library and also any targets that link this library</td>
+</tr>
+</tbody>
+</table>
+</div><!-- comment system--><div class="container"><hr></div></article><footer id="footer"><div class="container"><div class="bar"><div class="social"><a href="mailto:sinoxavier@outlook.com" target="_blank"><i class="fa fa-envelope-o"></i></a><a href="https://github.com/https://github.com/wanlizhu" target="_blank"><i class="fa fa-github"></i></a><a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div><div class="footer">© 2018 <a href="/" rel="nofollow">Wanli Zhu</a>. Powered by <a rel="nofollow" target="_blank" href="https://hexo.io">Hexo</a>. Theme <a target="_blank" href="https://github.com/lotabout/very-simple">very-simple</a>.</div></div></div></footer><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css"><script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script><script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script>$(document).ready(function() {
+    $(".fancybox").fancybox();
+});
+</script></body></html>
