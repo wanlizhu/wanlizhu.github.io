@@ -2,23 +2,22 @@
 <html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>CMake | Checking Platform - Wanli&#39;s Blog</title>
+<title>About - Wanli&#39;s Blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Platform Variables CMake System">
-<meta name="keywords" content="CMake">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CMake | Checking Platform">
-<meta property="og:url" content="http://wanlizhu.github.io/2018/12/25/cmake-checking-platform/index.html">
+    <meta name="description" content="Graphics Software Engineer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About">
+<meta property="og:url" content="http://wanlizhu.github.io/about/index.html">
 <meta property="og:site_name" content="Wanli&#39;s Blog">
-<meta property="og:description" content="Platform Variables CMake System">
+<meta property="og:description" content="Graphics Software Engineer">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-31T05:51:22.577Z">
+<meta property="og:updated_time" content="2018-12-31T03:56:33.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CMake | Checking Platform">
-<meta name="twitter:description" content="Platform Variables CMake System">
+<meta name="twitter:title" content="About">
+<meta name="twitter:description" content="Graphics Software Engineer">
 
 
 
@@ -88,7 +87,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="CMake | Checking Platform" height="28">
+                <img src="/images/logo.svg" alt="About" height="28">
             
             </a>
         </div>
@@ -104,7 +103,7 @@
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
-                <a class="navbar-item" href="/about">About</a>
+                <a class="navbar-item is-active" href="/about">About</a>
                 
             </div>
             
@@ -119,10 +118,6 @@
                     </a>
                     
                 
-                
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
                 
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
@@ -141,76 +136,13 @@
     
     <div class="card-content article ">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-12-25T13:15:55.000Z">2018-12-25</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/SW/">SW</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 minutes read (About 261 words)
-                </span>
-                
-            </div>
-        </div>
-        
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                CMake | Checking Platform
+                About
             
         </h1>
         <div class="content">
-            <!-- toc -->
-<ul>
-<li><a href="#platform-variables">Platform Variables</a></li>
-<li><a href="#cmake-system">CMake System</a></li>
-</ul>
-<!-- tocstop -->
-<a id="more"></a>
-<p>There are several different ways to check the current system/platform in CMake, and each interacts with cross-compiling in different ways.</p>
-<h1><span id="platform-variables">Platform Variables</span></h1><p>CMake sets certain variables to true depending on the current platform and toolchain in use. These always describe the target platform.</p>
-<ul>
-<li><p><strong>UNIX</strong> : is TRUE on all UNIX-like OS’s, including Apple OS X and CygWin</p>
-</li>
-<li><p><strong>WIN32</strong> : is TRUE on Windows. Prior to 2.8.4 this included CygWin</p>
-</li>
-<li><p><strong>APPLE</strong> : is TRUE on Apple systems. Note this does not imply the system is Mac OS X, only that <strong>APPLE</strong> is #defined in C/C++ header files.</p>
-</li>
-<li><p><strong>MINGW</strong> : is TRUE when using the MinGW compiler in Windows</p>
-</li>
-<li><p><strong>MSYS</strong> : is TRUE when using the MSYS developer environment in Windows</p>
-</li>
-<li><p><strong>CYGWIN</strong> : is TRUE on Windows when using the CygWin version of cmake</p>
-</li>
-</ul>
-<h1><span id="cmake-system">CMake System</span></h1><p>A cleaner and more cross-compiling-compatible way to check the current platform is through the CMAKE_SYSTEM variables.</p>
-<ul>
-<li><p><strong>CMAKE_SYSTEM</strong> : the complete system name, e.g. “Linux-2.4.22”, “FreeBSD-5.4-RELEASE” or “Windows 5.1”</p>
-</li>
-<li><p><strong>CMAKE_SYSTEM_NAME</strong> : The name of the system targeted by the build. The three common values are Windows, Darwin, and Linux, though several others exist, such as Android, FreeBSD, and CrayLinuxEnvironment. Platforms without an operating system, such as embedded devices, are given Generic as a system name.</p>
-</li>
-<li><p><strong>CMAKE_SYSTEM_VERSION</strong> : Version of the operating system. Generally the kernel version.</p>
-</li>
-<li><p><strong>CMAKE_SYSTEM_PROCESSOR</strong> : the processor name (e.g. “Intel(R) Pentium(R) M processor 2.00GHz”)</p>
-</li>
-<li><p><strong>CMAKE_HOST_SYSTEM_NAME</strong> : The name of the system hosting the build. Has the same possible values as CMAKE_SYSTEM_NAME.</p>
-</li>
-</ul>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/CMake/">CMake</a>
-                </div>
-            </div>
+            
         </div>
         
         
@@ -255,27 +187,6 @@
 </div>
 
 
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/12/25/5-reasons-to-learn-german/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">5 Reasons to Learn German</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/25/cmake-useful-variables/">
-                <span class="level-item">CMake | Useful Variables</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -388,25 +299,6 @@
 </div>
     
         
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Catalogue
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#undefined">
-        <span class="has-mr-6">1</span>
-        <span>Platform Variables</span>
-        </a></li><li>
-        <a class="is-flex" href="#undefined">
-        <span class="has-mr-6">2</span>
-        <span>CMake System</span>
-        </a></li></ul>
-        </div>
-    </div>
-</div>
-
     
         
 
@@ -730,7 +622,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="CMake | Checking Platform" height="28">
+                    <img src="/images/logo.svg" alt="About" height="28">
                 
                 </a>
                 <p class="is-size-7">

@@ -1,16 +1,182 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Graphics Software Engineer"><title>CMake | Useful Variables | Wanli's Blog</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css"><link rel="stylesheet" type="text/css" href="/css/very-simple.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><!-- include the sidebar--><!-- include ./includes/sidebar.jade--><!-- Blog title and subtitle--><header><div class="container header"><a id="logo" href="/." class="title">Wanli's Blog</a><span class="subtitle"></span><label id="toggle-menu" for="menu" onclick=""><i class="fa fa-bars"></i></label></div></header><!-- use checkbox hack for toggle nav-bar on small screens--><input id="menu" type="checkbox"><!-- Navigation Links--><nav id="nav"><div class="container"><a href="/" class="sidebar-nav-item active">Home</a><a href="/archives" class="sidebar-nav-item">Archives</a></div></nav><div id="header-margin-bar"></div><!-- gallery that comes before the header--><div class="wrapper"><div class="container post-header"><h1>CMake | Useful Variables</h1></div></div><div class="wrapper"><div class="container meta"><div class="post-time">2018-12-25</div><div class="post-categories"><a class="post-category-link" href="/categories/SW/">SW</a></div><div class="post-tags"><a class="post-tag-link" href="/tags/CMake/">CMake</a></div></div></div><article><div class="container post"><!-- toc -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>CMake | Useful Variables - Wanli&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Locations Environment Variables System &amp;amp; Compiler Information Various Options Compilers and Tools Prefixes, Suffixes (Postfixes), and Extensions">
+<meta name="keywords" content="CMake">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMake | Useful Variables">
+<meta property="og:url" content="http://wanlizhu.github.io/2018/12/25/cmake-useful-variables/index.html">
+<meta property="og:site_name" content="Wanli&#39;s Blog">
+<meta property="og:description" content="Locations Environment Variables System &amp;amp; Compiler Information Various Options Compilers and Tools Prefixes, Suffixes (Postfixes), and Extensions">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-12-31T05:55:12.020Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CMake | Useful Variables">
+<meta name="twitter:description" content="Locations Environment Variables System &amp;amp; Compiler Information Various Options Compilers and Tools Prefixes, Suffixes (Postfixes), and Extensions">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="CMake | Useful Variables" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-25T12:30:51.000Z">2018-12-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/SW/">SW</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2097 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                CMake | Useful Variables
+            
+        </h1>
+        <div class="content">
+            <!-- toc -->
 <ul>
-<li><a href="#locations"><strong>Locations</strong></a></li>
-<li><a href="#environment-variables"><strong>Environment Variables</strong></a></li>
-<li><a href="#system-compiler-information"><strong>System &amp; Compiler Information</strong></a></li>
-<li><a href="#various-options"><strong>Various Options</strong></a></li>
-<li><a href="#compilers-and-tools"><strong>Compilers and Tools</strong></a></li>
-<li><a href="#prefixes-suffixes-postfixes-and-extensions"><strong>Prefixes, Suffixes (Postfixes), and Extensions</strong></a></li>
+<li><a href="#locations">Locations</a></li>
+<li><a href="#environment-variables">Environment Variables</a></li>
+<li><a href="#system-compiler-information">System &amp; Compiler Information</a></li>
+<li><a href="#various-options">Various Options</a></li>
+<li><a href="#compilers-and-tools">Compilers and Tools</a></li>
+<li><a href="#prefixes-suffixes-postfixes-and-extensions">Prefixes, Suffixes (Postfixes), and Extensions</a></li>
 </ul>
 <!-- tocstop -->
 <a id="more"></a>
-<h2><span id="locations"><strong>Locations</strong></span></h2><hr>
-<ul>
+<h1><span id="locations">Locations</span></h1><ul>
 <li><p><strong>CMAKE_BINARY_DIR</strong> : if you are building in-source, this is the same as CMAKE_SOURCE_DIR, otherwise this is the top level directory of your build tree</p>
 </li>
 <li><p><strong>CMAKE_COMMAND</strong> : this is the complete path of the cmake which runs currently (e.g. <code>/usr/local/bin/cmake</code>). Note that if you have custom commands that invoke <code>cmake -E</code>, it is very important to use CMAKE_COMMAND as the CMake executable, because CMake might not be on the system PATH.</p>
@@ -30,7 +196,7 @@
 <li><p><strong>CMAKE_MODULE_PATH</strong> : tell CMake to search first in directories listed in CMAKE_MODULE_PATH when you use FIND_PACKAGE() or INCLUDE()</p>
 </li>
 </ul>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">SET</span><span class="hljs-params">(CMAKE_MODULE_PATH $&#123;PROJECT_SOURCE_DIR&#125;/MyCMakeScripts)</span></span><br><span class="hljs-function"><span class="hljs-title">FIND_PACKAGE</span><span class="hljs-params">(HelloWorld)</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-title">SET</span><span class="hljs-params">(CMAKE_MODULE_PATH $&#123;PROJECT_SOURCE_DIR&#125;/MyCMakeScripts)</span></span><br><span class="hljs-function"><span class="hljs-title">FIND_PACKAGE</span><span class="hljs-params">(HelloWorld)</span></span><br></code></pre></td></tr></table></figure>
 <ul>
 <li><p><strong>CMAKE_ROOT</strong> : this is the CMake installation directory</p>
 </li>
@@ -45,8 +211,7 @@
 <li><p><strong>PROJECT_SOURCE_DIR</strong> : contains the full path to the root of your project source directory, i.e. to the nearest directory where CMakeLists.txt contains the PROJECT() command</p>
 </li>
 </ul>
-<h2><span id="environment-variables"><strong>Environment Variables</strong></span></h2><hr>
-<p>These are environment variables which effect cmake behaviour.</p>
+<h1><span id="environment-variables">Environment Variables</span></h1><p>These are environment variables which effect cmake behaviour.</p>
 <ul>
 <li><p><strong>CMAKE_INCLUDE_PATH</strong> : This is used when searching for include files e.g. using the FIND_PATH() command. If you have headers in non-standard locations, it may be useful to set this variable to this directory (e.g. <code>/sw/include</code> on Mac OS X). If you need several directories, separate them by the platform specific separators (e.g. “:” on UNIX)</p>
 </li>
@@ -61,8 +226,7 @@
 <li><p><strong>DESTDIR</strong> : If this environment variable is set it will be prefixed to CMAKE_INSTALL_PREFIX in places where it is used to access files during installation. This allows the files to be installed in an intermediate directory tree without changing the final installation path name. Since the value of CMAKE_INSTALL_PREFIX may be included in installed files it is important to use DESTDIR rather than changing CMAKE_INSTALL_PREFIX when it is necessary to install to a intermediate staging directory.</p>
 </li>
 </ul>
-<h2><span id="system-amp-compiler-information"><strong>System &amp; Compiler Information</strong></span></h2><hr>
-<ul>
+<h1><span id="system-amp-compiler-information">System &amp; Compiler Information</span></h1><ul>
 <li><p><strong>CMAKE_MAJOR_VERSION</strong> : major version number for CMake, e.g. the “2” in CMake 2.4.3</p>
 </li>
 <li><p><strong>CMAKE_MINOR_VERSION</strong> : minor version number for CMake, e.g. the “4” in CMake 2.4.3</p>
@@ -87,8 +251,7 @@
 </li>
 </ul>
 <p>See the <a href="https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Checking-Platform" target="_blank" rel="noopener">Checking the Current Platform</a> page for a list of the variables pertaining to platform checks.</p>
-<h2><span id="various-options"><strong>Various Options</strong></span></h2><hr>
-<ul>
+<h1><span id="various-options">Various Options</span></h1><ul>
 <li><p><strong>CMAKE_SKIP_RULE_DEPENDENCY</strong> : set this to true if you don’t want to rebuild the object files if the rules have changed, but not the actual source files or headers (e.g. if you changed the some compiler switches)</p>
 </li>
 <li><p><strong>CMAKE_SKIP_INSTALL_ALL_DEPENDENCY</strong> : since CMake 2.1 the install rule depends on all, i.e. everything will be built before installing. If you don’t like this, set this one to true.</p>
@@ -108,8 +271,7 @@
 <li><p><strong>CMAKE_SKIP_ASSEMBLY_SOURCE_RULES</strong> : (since 2.4.4) if set to TRUE, the generated Makefiles will not contain rules for creating compiled, but not yet assembled files (foo.s)</p>
 </li>
 </ul>
-<h2><span id="compilers-and-tools"><strong>Compilers and Tools</strong></span></h2><hr>
-<ul>
+<h1><span id="compilers-and-tools">Compilers and Tools</span></h1><ul>
 <li><p><strong>BUILD_SHARED_LIBS</strong> : if this is set to ON, then all libraries are built as shared libraries by default. <code>SET(BUILD_SHARED_LIBS ON)</code></p>
 </li>
 <li><p><strong>CMAKE_BUILD_TYPE</strong> : A variable which controls the type of build when using a single-configuration generator like the Makefile generator. It is case-insensitive.</p>
@@ -125,7 +287,7 @@
 </ul>
 <p>You can use these default compilation flags (or modify them) by setting the CMAKE_BUILD_TYPE variable at configuration time on the command line, or from within the “ccmake” GUI. <strong>Note!</strong> The default values for these flags change with different compilers. If CMake does not know your compiler, the contents will be empty.</p>
 <p>If you are using the Makefile generator, you can create your own build type like this:</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">SET</span>(CMAKE_BUILD_TYPE distribution)<br><span class="hljs-keyword">SET</span>(CMAKE_CXX_FLAGS_DISTRIBUTION <span class="hljs-string">"-O3"</span>)<br><span class="hljs-keyword">SET</span>(CMAKE_C_FLAGS_DISTRIBUTION <span class="hljs-string">"-O3"</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight cmake hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-keyword">SET</span>(CMAKE_BUILD_TYPE distribution)<br><span class="hljs-keyword">SET</span>(CMAKE_CXX_FLAGS_DISTRIBUTION <span class="hljs-string">"-O3"</span>)<br><span class="hljs-keyword">SET</span>(CMAKE_C_FLAGS_DISTRIBUTION <span class="hljs-string">"-O3"</span>)<br></code></pre></td></tr></table></figure>
 <p>Note that CMAKE_BUILD_TYPE is not initialized with a readable value at configuration time. This is because the user is free to select a build type at build time. Use CMAKE_CFG_INTDIR if you need a variable that evaluates to the correct build time directory.</p>
 <ul>
 <li><p><strong>CMAKE_CONFIGURATION_TYPES</strong> : When using a multi-configuration generator, such as the one for Visual Studio, this variable contains a list of the available configurations.</p>
@@ -158,8 +320,7 @@
 </li>
 </ul>
 <p><code>set(CMAKE_SHARED_LINKER_FLAGS &quot;-Wl,--no-undefined&quot;)</code> On Unix systems, this will make linker report any unresolved symbols from object files (which is quite typical when you compile many targets in CMake projects, but do not bother with linking target dependencies in proper order). On mac, the flag is <code>-Wl,-undefined-error</code>.</p>
-<h2><span id="prefixes-suffixes-postfixes-and-extensions"><strong>Prefixes, Suffixes (Postfixes), and Extensions</strong></span></h2><hr>
-<ul>
+<h1><span id="prefixes-suffixes-postfixes-and-extensions">Prefixes, Suffixes (Postfixes), and Extensions</span></h1><ul>
 <li><p><strong>CMAKE_EXECUTABLE_SUFFIX</strong> : Suffix of executables on the target platform.</p>
 </li>
 <li><p><strong>CMAKE_FIND_LIBRARY_PREFIXES</strong> : List of possible library prefixes used by find_library(). “lib” on UNIX systems.</p>
@@ -173,7 +334,708 @@
 <li><p><strong>CMAKE_POSTFIX</strong> : Adds a custom “postfix” to static and shared libraries when in a certain build type. Example: Setting <code>CMAKE_BUILD_TYPE=DEBUG</code> and <code>CMAKE_DEBUG_POSTFIX=&quot;_d&quot;</code> would turn mylib.lib into mylib_d.lib.</p>
 </li>
 </ul>
-</div><!-- comment system--><div class="container"><hr></div></article><footer id="footer"><div class="container"><div class="bar"><div class="social"><a href="mailto:sinoxavier@outlook.com" target="_blank"><i class="fa fa-envelope-o"></i></a><a href="https://github.com/https://github.com/wanlizhu" target="_blank"><i class="fa fa-github"></i></a><a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a></div><div class="footer">© 2018 <a href="/" rel="nofollow">Wanli Zhu</a>. Powered by <a rel="nofollow" target="_blank" href="https://hexo.io">Hexo</a>. Theme <a target="_blank" href="https://github.com/lotabout/very-simple">very-simple</a>.</div></div></div></footer><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css"><script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script><script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script>$(document).ready(function() {
-    $(".fancybox").fancybox();
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/CMake/">CMake</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/12/25/cmake-checking-platform/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">CMake | Checking Platform</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/12/13/the-power-of-nostalgia/">
+                <span class="level-item">The Power Of Nostalgia</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Wanli Zhu">
+                    
+                    <p class="is-size-4 is-block">
+                        Wanli Zhu
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Graphics Software Engineer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Shanghai, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        9
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        4
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        6
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/wanlizhu">
+                Follow</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/wanlizhu">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com/xavierchina">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Catalogue
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#undefined">
+        <span class="has-mr-6">1</span>
+        <span>Locations</span>
+        </a></li><li>
+        <a class="is-flex" href="#undefined">
+        <span class="has-mr-6">2</span>
+        <span>Environment Variables</span>
+        </a></li><li>
+        <a class="is-flex" href="#undefined">
+        <span class="has-mr-6">3</span>
+        <span>System &amp; Compiler Information</span>
+        </a></li><li>
+        <a class="is-flex" href="#undefined">
+        <span class="has-mr-6">4</span>
+        <span>Various Options</span>
+        </a></li><li>
+        <a class="is-flex" href="#undefined">
+        <span class="has-mr-6">5</span>
+        <span>Compilers and Tools</span>
+        </a></li><li>
+        <a class="is-flex" href="#undefined">
+        <span class="has-mr-6">6</span>
+        <span>Prefixes, Suffixes (Postfixes), and Extensions</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/C/">
+            <span class="level-start">
+                <span class="level-item">C++</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/English/">
+            <span class="level-start">
+                <span class="level-item">English</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/German/">
+            <span class="level-start">
+                <span class="level-item">German</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SW/">
+            <span class="level-start">
+                <span class="level-item">SW</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Tag Cloud
+        </h3>
+        <a href="/tags/Brexit/" style="font-size: 10px;">Brexit</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CMake/" style="font-size: 20px;">CMake</a> <a href="/tags/English/" style="font-size: 15px;">English</a> <a href="/tags/German/" style="font-size: 15px;">German</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow  ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2018/12/31/C-内存对象模型/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="C++内存对象模型">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-30T16:01:46.000Z">2018-12-31</time></div>
+                    <a href="/2018/12/31/C-内存对象模型/" class="has-link-black-ter is-size-6">C++内存对象模型</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/C/">C++</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/26/german-for-english-speakers/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="German for English Speakers">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-25T16:25:02.000Z">2018-12-26</time></div>
+                    <a href="/2018/12/26/german-for-english-speakers/" class="has-link-black-ter is-size-6">German for English Speakers</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/German/">German</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/25/5-reasons-to-learn-german/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="5 Reasons to Learn German">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-25T14:19:41.000Z">2018-12-25</time></div>
+                    <a href="/2018/12/25/5-reasons-to-learn-german/" class="has-link-black-ter is-size-6">5 Reasons to Learn German</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/German/">German</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/25/cmake-checking-platform/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="CMake | Checking Platform">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-25T13:15:55.000Z">2018-12-25</time></div>
+                    <a href="/2018/12/25/cmake-checking-platform/" class="has-link-black-ter is-size-6">CMake | Checking Platform</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SW/">SW</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/12/25/cmake-useful-variables/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="CMake | Useful Variables">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-25T12:30:51.000Z">2018-12-25</time></div>
+                    <a href="/2018/12/25/cmake-useful-variables/" class="has-link-black-ter is-size-6">CMake | Useful Variables</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SW/">SW</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Brexit/">
+                        <span class="level-start">
+                            <span class="level-item">Brexit</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/C/">
+                        <span class="level-start">
+                            <span class="level-item">C++</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/CMake/">
+                        <span class="level-start">
+                            <span class="level-item">CMake</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/English/">
+                        <span class="level-start">
+                            <span class="level-item">English</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/German/">
+                        <span class="level-start">
+                            <span class="level-item">German</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">2</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Git/">
+                        <span class="level-start">
+                            <span class="level-item">Git</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="CMake | Useful Variables" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2018 Wanli Zhu&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
 });
-</script></body></html>
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
