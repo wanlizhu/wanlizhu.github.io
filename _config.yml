@@ -1,0 +1,126 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Wanli's Blog
+subtitle: Welcome
+description: Tech Blog on Computer Graphics
+keywords:
+    - blog
+    - computer graphics
+    - geometry
+    - GPU
+    - C++
+    - QT
+    - OpenGL
+    - Vulkan
+author: Wanli ZHU
+avatar: /images/avatar.jpg
+favicon: /images/favicon.ico
+language: en-US
+timezone: Asia/Shanghai
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://wanlizhu.github.io
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+  
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 20
+  order_by: -date
+  
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 20
+pagination_dir: page
+    
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: next
+search:
+    path: search.xml
+    field: post
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/wanlizhu/wanlizhu.github.io
+  branch: master
+  
+
+
+
+
+# Front-matter
+# -layout
+# -title
+# -date
+# -updated
+# -comments
+# -tags
+# -categories
+# -permalink
+
+# Layout
+# command `hexo new [layout] <title>`
+# available layout: post(source/_posts), page(source), draft(source/_drafts)
+# page:
+# 如果你想另起一页，那么可以使用 `hexo new page board`
+# 系统会自动给你在source文件夹下创建一个board文件夹，以及board文件夹中的index.md，这样你访问的board对应的链接就是http://xxx.xxx/board
+#
+# draft:
+# draft是草稿的意思，也就是你如果想写文章，又不希望被看到，那么可以 `hexo new draft newpage`
+# 这样会在source/_draft中新建一个newpage.md文件，如果你的草稿文件写的过程中，想要预览一下，那么可以使用 `hexo server --draft` 在本地端口中开启服务预览。
+# 如果你的草稿文件写完了，想要发表到post中， `hexo publish draft newpage` 就会自动把newpage.md发送到post中。
+
+  
